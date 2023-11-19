@@ -1,0 +1,23 @@
+name: Neofetch and Disk Space
+on: push
+jobs:
+  neofetch:
+    strategy:
+      matrix:
+        os: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Install neofetch
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            sudo apt-get update
+            sudo apt-get install neofetch
+          elif [ "$RUNNER_OS" == "Windows" ]; then
+            scoop install neofetch
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+            brew install neofetch
+          fi
+      - name: Run neofetch
+        run: neofetch
+      - name: Check disk space
+        run: diskusage /h C:

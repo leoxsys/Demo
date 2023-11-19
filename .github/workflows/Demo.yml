@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Install neofetch
         run:
-            apt install neofetch
+              sudo apt install neofetch
       - name: Run neofetch
         run: neofetch
       

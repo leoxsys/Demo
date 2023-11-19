@@ -19,5 +19,4 @@ jobs:
           fi
       - name: Run neofetch
         run: neofetch
-      - name: Check disk space
-        run: diskusage /h C:
+      
